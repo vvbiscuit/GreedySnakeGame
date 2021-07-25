@@ -21,12 +21,16 @@
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Map.cpp" />
+    <ClCompile Include="..\src\Point.cpp" />
     <ClCompile Include="..\src\Snake.cpp" />
+    <ClCompile Include="Food.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Define.h" />
     <ClInclude Include="..\src\Map.h" />
+    <ClInclude Include="..\src\Point.h" />
     <ClInclude Include="..\src\Snake.h" />
+    <ClInclude Include="Food.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

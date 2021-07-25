@@ -6,9 +6,8 @@
 using namespace std;
 
 Map::Map()
-	:m_mapLength(MAP_LENGTH)
 {
-	
+	m_mapLength = MAP_LENGTH;
 }
 
 Map::~Map()
@@ -26,7 +25,7 @@ void Map::drawMap()
 			{
 				cout << "$";
 			}
-			else if(col == 0 || (col == m_mapLength - 1))
+			else if (col == 0 || (col == m_mapLength - 1))
 			{
 				cout << "$";
 			}
@@ -34,8 +33,8 @@ void Map::drawMap()
 			{
 				cout << " ";
 			}
-			
-			if (col == m_mapLength -1)
+
+			if (col == m_mapLength - 1)
 			{
 				cout << endl;
 			}
