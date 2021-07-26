@@ -1,6 +1,8 @@
 #ifndef _SNAKE_H_
 #define _SNAKE_H_
 
+#include <vector>
+
 #include "Point.h"
 
 /**********************************************************************************************//**
@@ -28,6 +30,7 @@ private:
 	~Snake();
 
 	static Snake* s_instance;
+	std::vector<Point> m_coordinateVec;	//蛇身的坐标序列
 };
 
 #endif

@@ -26,7 +26,9 @@
     <ClCompile Include="..\src\Point.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="..\src\Food.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Map.h">
@@ -41,7 +43,7 @@
     <ClInclude Include="..\src\Point.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Food.h">
+    <ClInclude Include="..\src\Food.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

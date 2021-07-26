@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cstdio>
+#include <windows.h>
+#include <conio.h>
 
 #include "Point.h"
 
@@ -20,9 +23,10 @@ Point::~Point()
 
 }
 
-void Point::print()
+void Point::print(char symbol)
 {
-
+	setCursorPosition(m_x, m_y);
+	cout << symbol;
 }
 
 void Point::clear()
@@ -33,6 +37,14 @@ void Point::clear()
 void Point::changePosition(const int x, const int y)
 {
 
+}
+
+void Point::setCursorPosition(const int x, const int y)
+{
+	COORD position;
+	position.X = x;
+	position.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);//这个就是这样，记住格式就行
 }
 
 int Point::getX()
