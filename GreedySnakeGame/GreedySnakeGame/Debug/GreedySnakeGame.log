@@ -1,5 +1,2 @@
-﻿  Snake.cpp
-E:\MyProject\GreedySnakeGame\GreedySnakeGame\src\Snake.cpp(48,20): warning C4018: “<”: 有符号/无符号不匹配
-  main.cpp
-  正在生成代码...
+﻿  main.cpp
   GreedySnakeGame.vcxproj -> E:\MyProject\GreedySnakeGame\GreedySnakeGame\Debug\GreedySnakeGame.exe
