@@ -23,20 +23,16 @@ Point::~Point()
 
 }
 
-void Point::print(char symbol)
+void Point::print(string symbol)
 {
 	setCursorPosition(m_x, m_y);
 	cout << symbol;
 }
 
-void Point::clear()
-{
-
-}
-
 void Point::changePosition(const int x, const int y)
 {
-
+	m_x = x;
+	m_y = y;
 }
 
 void Point::setCursorPosition(const int x, const int y)
