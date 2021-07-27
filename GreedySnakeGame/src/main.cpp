@@ -28,6 +28,13 @@ int main()
 
 	Snake::getInstance()->draw();
 
+	while (true)
+	{
+		Snake::getInstance()->getDirection();
+
+		//Sleep(200);
+	}
+
 	//Point myPoint;
 	//myPoint.setPosition(10, 8);
 	//cout << "t";

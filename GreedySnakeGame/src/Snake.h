@@ -19,7 +19,9 @@ public:
 	static Snake* getInstance();
 	static void finalizeInstance();
 
-	void draw();			//绘制蛇函数
+	void draw();			
+	void move();			
+	Point getDirection();	//获取用户键盘操作的方向，返回新的蛇头方向
 
 	bool isEatSelf();		//判断是否吃到自己
 	bool isHitWall();		//判断是否撞到墙
@@ -28,8 +30,10 @@ public:
 private:
 	Snake();
 	~Snake();
+	void getHeadCoor(int &x,int &y);	//获取蛇头的坐标
 
 	static Snake* s_instance;
+	bool m_isAlive;
 	std::vector<Point> m_coordinateVec;	//蛇身的坐标序列
 };
 
