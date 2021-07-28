@@ -37,6 +37,8 @@ void Point::changePosition(const int x, const int y)
 
 void Point::setCursorPosition(const int x, const int y)
 {
+	m_x = x;
+	m_y = y;
 	COORD position;
 	position.X = x;
 	position.Y = y;
