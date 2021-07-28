@@ -30,9 +30,14 @@ int main()
 
 	while (true)
 	{
-		Snake::getInstance()->getDirection();
+		int rtn = Snake::getInstance()->move();
+		if (rtn == 0)
+		{
+			cout << "Game over" << endl;
+			break;
+		}
 
-		//Sleep(200);
+		Sleep(200);
 	}
 
 	//Point myPoint;

@@ -7,6 +7,7 @@ Snake* Snake::s_instance = nullptr;
 
 enum Direction
 {
+	//键盘获取方向键输入的ASCII码值
 	LEFT = 75,
 	UP = 72,
 	RIGHT = 77,
@@ -74,6 +75,22 @@ void Snake::draw()
 	}
 }
 
+int Snake::move()
+{
+	Point newHeadPoint = getDirection();
+	m_coordinateVec.insert(m_coordinateVec.begin(), newHeadPoint);
+	m_coordinateVec.back().print("  ");//将队尾的蛇身用空字符串清除原先的打印
+	m_coordinateVec.pop_back();//将原队尾元素舍弃
+	draw();
+
+	if (isEatSelf() || isHitWall())
+	{
+		return 0;
+	}
+
+	return 1;
+}
+
 Point Snake::getDirection()
 {
 	static int key = LEFT;  //静态变量防止改变移动方向后重新改回来
@@ -98,6 +115,7 @@ Point Snake::getDirection()
 			{
 				key = user_input;
 			}
+			break;
 		}
 	}
 
@@ -106,27 +124,23 @@ Point Snake::getDirection()
 	{
 	case LEFT:
 	{
-		m_coordinateVec[0].print("L");
 		newHeadPoint.setCursorPosition(m_coordinateVec.front().getX() - 2, m_coordinateVec.front().getY());
 		break;
 	}
 
 	case RIGHT:
 	{
-		m_coordinateVec[0].print("R");
 		newHeadPoint.setCursorPosition(m_coordinateVec.front().getX() + 2, m_coordinateVec.front().getY());
 		break;
 	}
 	case UP:
 	{
-		m_coordinateVec[0].print("U");
 		newHeadPoint.setCursorPosition(m_coordinateVec.front().getX(), m_coordinateVec.front().getY() - 1);
 		break;
 	}
 	case DOWN:
 	{
-		m_coordinateVec[0].print("D");
-		newHeadPoint.setCursorPosition(m_coordinateVec.front().getX() - 2, m_coordinateVec.front().getY() + 1);
+		newHeadPoint.setCursorPosition(m_coordinateVec.front().getX(), m_coordinateVec.front().getY() + 1);
 		break;
 	}
 	}
@@ -141,7 +155,7 @@ bool Snake::isEatSelf()
 	int head_y = 0;
 	getHeadCoor(head_x, head_y);
 
-	for (int i = 0; i < m_coordinateVec.size(); i++)
+	for (int i = 1; i < m_coordinateVec.size(); i++)//从1开始，不与自己的蛇头比较
 	{
 		if (head_x == m_coordinateVec[i].getX() && head_y == m_coordinateVec[i].getY())
 		{
@@ -161,7 +175,7 @@ bool Snake::isHitWall()
 	getHeadCoor(head_x, head_y);
 
 	//判断撞墙的条件：x或者y其中有一个在边界
-	if (head_x == 0 || (head_x == MAP_LENGTH - 1))
+	if (head_x == 0 || (head_x == 2 * (MAP_LENGTH - 1))) //x轴由于打印原因需要乘2
 	{
 		m_isAlive = false;
 		return true;

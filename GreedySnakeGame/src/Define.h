@@ -1,3 +1,3 @@
 #pragma once
 
-#define MAP_LENGTH 30		//正方形地图的边长
+#define MAP_LENGTH 32		//正方形地图的边长

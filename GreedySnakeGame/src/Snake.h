@@ -20,7 +20,7 @@ public:
 	static void finalizeInstance();
 
 	void draw();			
-	void move();			
+	int move();			
 	Point getDirection();	//获取用户键盘操作的方向，返回新的蛇头方向
 
 	bool isEatSelf();		//判断是否吃到自己
