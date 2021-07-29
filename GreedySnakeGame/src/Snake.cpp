@@ -175,12 +175,12 @@ bool Snake::isHitWall()
 	getHeadCoor(head_x, head_y);
 
 	//判断撞墙的条件：x或者y其中有一个在边界
-	if (head_x == 0 || (head_x == 2 * (MAP_LENGTH - 1))) //x轴由于打印原因需要乘2
+	if (head_x <= 0 || (head_x >= 2 * MAP_LENGTH - 3)) //x轴由于打印原因需要乘2
 	{
 		m_isAlive = false;
 		return true;
 	}
-	if (head_y == 0 || (head_y == MAP_LENGTH - 1))
+	if (head_y <= 0 || (head_y >= MAP_LENGTH - 1))
 	{
 		m_isAlive = false;
 		return true;

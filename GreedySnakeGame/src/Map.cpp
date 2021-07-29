@@ -18,7 +18,7 @@ Map::~Map()
 void Map::drawMap()
 {
 	//绘制地图
-	// 注意列乘以2的原因，是因为控制台里y=2x才能绘制出正方形，一个纵坐标的值等于两个横坐标的值
+	// 注意列乘以2的原因，是因为控制台里y=2x才能绘制出正方形，一个纵坐标的值的宽度等于两个横坐标的宽度
 	for (int row = 0; row < m_mapLength; row++)//行
 	{
 		for (int col = 0; col < m_mapLength * 2; col++)//列
@@ -27,9 +27,9 @@ void Map::drawMap()
 			{
 				cout << "$";
 			}
-			else if (col == 0 || (col == m_mapLength * 2 - 1))
+			else if (col == 0 || (col == m_mapLength * 2 - 3))
 			{
-				cout << "$";
+				cout << "$$";
 			}
 			else
 			{
