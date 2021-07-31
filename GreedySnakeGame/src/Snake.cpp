@@ -86,6 +86,7 @@ int Snake::move(Food& food)
 	//若蛇头坐标和食物坐标一致，即为吃到食物
 	if (newHeadPoint == food.getCoordinate())
 	{
+		m_coordinateVec.push_back(m_coordinateVec.back());
 		//生成一个新食物
 		while (1)
 		{
