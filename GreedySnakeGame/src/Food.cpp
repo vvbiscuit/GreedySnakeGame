@@ -19,3 +19,8 @@ void Food::produceFood()
 	m_coordinate.setCursorPosition(x, y);
 	m_coordinate.print("бя");
 }
+
+Point Food::getCoordinate()
+{
+	return m_coordinate;
+}

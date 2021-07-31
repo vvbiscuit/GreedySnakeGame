@@ -10,6 +10,7 @@ public:
 	~Food() {}
 
 	void produceFood();
+	Point getCoordinate();
 
 private:
 	Point m_coordinate;
