@@ -6,6 +6,7 @@
 #include "Map.h"
 #include "Point.h"
 #include "Snake.h"
+#include "Food.h"
 
 using namespace std;
 
@@ -27,6 +28,8 @@ int main()
 	gameMap.drawMap();
 
 	Snake::getInstance()->draw();
+	Food food;
+	food.produceFood();
 
 	while (true)
 	{
