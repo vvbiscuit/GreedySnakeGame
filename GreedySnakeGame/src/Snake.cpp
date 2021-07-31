@@ -75,13 +75,35 @@ void Snake::draw()
 	}
 }
 
-int Snake::move()
+int Snake::move(Food& food)
 {
 	Point newHeadPoint = getDirection();
 	m_coordinateVec.insert(m_coordinateVec.begin(), newHeadPoint);
 	m_coordinateVec.back().print("  ");//将队尾的蛇身用空字符串清除原先的打印
 	m_coordinateVec.pop_back();//将原队尾元素舍弃
 	draw();
+
+	//若蛇头坐标和食物坐标一致，即为吃到食物
+	if (newHeadPoint == food.getCoordinate())
+	{
+		//生成一个新食物
+		while (1)
+		{
+			food.produceFood();
+			bool isFoodValid = true;
+			for (int i = 0; i < m_coordinateVec.size(); i++)
+			{
+				if (food.getCoordinate() == m_coordinateVec[i])
+				{
+					isFoodValid = false;
+				}
+			}
+			if (isFoodValid)
+			{
+				break;
+			}
+		}
+	}
 
 	if (isEatSelf() || isHitWall())
 	{
@@ -146,6 +168,11 @@ Point Snake::getDirection()
 	}
 
 	return newHeadPoint;
+}
+
+std::vector<Point> Snake::getSnakeCoorVec()
+{
+	return m_coordinateVec;
 }
 
 bool Snake::isEatSelf()

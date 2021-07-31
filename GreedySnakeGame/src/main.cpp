@@ -17,6 +17,26 @@ void hideCursor()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
 
+//生成一个合法食物，不能与蛇身重合
+void produceValidFood(Food &food, std::vector<Point> vec)
+{
+	while (1)
+	{
+		food.produceFood();
+		bool isFoodValid = true;
+		for (int i = 0; i < vec.size(); i++)
+		{
+			if (food.getCoordinate() == vec[i])
+			{
+				isFoodValid = false;
+			}
+		}
+		if (isFoodValid)
+		{
+			break;
+		}
+	}
+}
 
 int main()
 {
@@ -29,11 +49,11 @@ int main()
 
 	Snake::getInstance()->draw();			//蛇对象绘制
 	Food food;
-	food.produceFood();
+	produceValidFood(food, Snake::getInstance()->getSnakeCoorVec());	//在蛇移动前生成一个合法的食物位置
 
 	while (true)
 	{
-		int rtn = Snake::getInstance()->move();
+		int rtn = Snake::getInstance()->move(food);
 		if (rtn == 0)
 		{
 			cout << "Game over" << endl;

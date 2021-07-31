@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Point.h"
+#include "Food.h"
 
 /**********************************************************************************************//**
  * @class	Snake
@@ -20,8 +21,9 @@ public:
 	static void finalizeInstance();
 
 	void draw();			
-	int move();			
+	int move(Food &food);			
 	Point getDirection();	//获取用户键盘操作的方向，返回新的蛇头方向
+	std::vector<Point> getSnakeCoorVec();
 
 	bool isEatSelf();		//判断是否吃到自己
 	bool isHitWall();		//判断是否撞到墙

@@ -8,7 +8,7 @@ void Food::produceFood()
 	srand(time(0));
 
 	int x = 1;
-	int y;
+	int y = 1;
 
 	while (x % 2 != 0)
 	{
