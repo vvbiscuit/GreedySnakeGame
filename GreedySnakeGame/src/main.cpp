@@ -25,9 +25,9 @@ int main()
 	hideCursor();							//隐藏光标
 
 	Map gameMap;
-	gameMap.drawMap();
+	gameMap.drawMap();						//地图绘制
 
-	Snake::getInstance()->draw();
+	Snake::getInstance()->draw();			//蛇对象绘制
 	Food food;
 	food.produceFood();
 
