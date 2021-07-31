@@ -13,7 +13,7 @@ void Food::produceFood()
 	while (x % 2 != 0)
 	{
 		x = rand() % (MAP_LENGTH * 2 - 4) + 2;
-		y = rand() % (MAP_LENGTH - 1) + 1;
+		y = rand() % (MAP_LENGTH - 3) + 1;
 	}
 
 	m_coordinate.setCursorPosition(x, y);
