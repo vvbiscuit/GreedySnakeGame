@@ -41,7 +41,7 @@ void Point::setCursorPosition(const int x, const int y)
 	COORD position;
 	position.X = x;
 	position.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);//Õâ¸ö¾ÍÊÇÕâÑù£¬¼Ç×¡¸ñÊ½¾ÍĞĞ
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);//è¿™ä¸ªå°±æ˜¯è¿™æ ·ï¼Œè®°ä½æ ¼å¼å°±è¡Œ
 }
 
 int Point::getX()

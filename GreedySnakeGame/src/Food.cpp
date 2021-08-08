@@ -17,7 +17,7 @@ void Food::produceFood()
 	}
 
 	m_coordinate.setCursorPosition(x, y);
-	m_coordinate.print("¡ï");
+	m_coordinate.print("â˜…");
 }
 
 Point Food::getCoordinate()

@@ -9,7 +9,7 @@
 /**********************************************************************************************//**
  * @class	Snake
  *
- * @brief	Ì°³ÔÉßÀà£¬ÓÃÓÚÉú³É¾ßÌåµÄÓÎÏ·¶ÔÏó.
+ * @brief	è´ªåƒè›‡ç±»ï¼Œç”¨äºç”Ÿæˆå…·ä½“çš„æ¸¸æˆå¯¹è±¡.
  *
  * @author	vvbiscuit
  * @date	2021/7/25
@@ -22,21 +22,21 @@ public:
 
 	void draw();			
 	int move(Food &food);			
-	Point getDirection();	//»ñÈ¡ÓÃ»§¼üÅÌ²Ù×÷µÄ·½Ïò£¬·µ»ØĞÂµÄÉßÍ··½Ïò
+	Point getDirection();	//è·å–ç”¨æˆ·é”®ç›˜æ“ä½œçš„æ–¹å‘ï¼Œè¿”å›æ–°çš„è›‡å¤´æ–¹å‘
 	std::vector<Point> getSnakeCoorVec();
 
-	bool isEatSelf();		//ÅĞ¶ÏÊÇ·ñ³Ôµ½×Ô¼º
-	bool isHitWall();		//ÅĞ¶ÏÊÇ·ñ×²µ½Ç½
-	bool isSnakeAlive();	//ÅĞ¶ÏÉß±¾ÉíÊÇ·ñ´æ»î
+	bool isEatSelf();		//åˆ¤æ–­æ˜¯å¦åƒåˆ°è‡ªå·±
+	bool isHitWall();		//åˆ¤æ–­æ˜¯å¦æ’åˆ°å¢™
+	bool isSnakeAlive();	//åˆ¤æ–­è›‡æœ¬èº«æ˜¯å¦å­˜æ´»
 
 private:
 	Snake();
 	~Snake();
-	void getHeadCoor(int &x,int &y);	//»ñÈ¡ÉßÍ·µÄ×ø±ê
+	void getHeadCoor(int &x,int &y);	//è·å–è›‡å¤´çš„åæ ‡
 
 	static Snake* s_instance;
 	bool m_isAlive;
-	std::vector<Point> m_coordinateVec;	//ÉßÉíµÄ×ø±êĞòÁĞ
+	std::vector<Point> m_coordinateVec;	//è›‡èº«çš„åæ ‡åºåˆ—
 };
 
 #endif

@@ -7,7 +7,7 @@ Snake* Snake::s_instance = nullptr;
 
 enum Direction
 {
-	//¼üÅÌ»ñÈ¡·½Ïò¼üÊäÈëµÄASCIIÂëÖµ
+	//é”®ç›˜è·å–æ–¹å‘é”®è¾“å…¥çš„ASCIIç å€¼
 	LEFT = 75,
 	UP = 72,
 	RIGHT = 77,
@@ -40,7 +40,7 @@ void Snake::getHeadCoor(int& x, int& y)
 		return;
 	}
 
-	//»ñÈ¡ÉßÍ·µÄ×ø±ê
+	//è·å–è›‡å¤´çš„åæ ‡
 	x = m_coordinateVec.front().getX();
 	y = m_coordinateVec.front().getY();
 }
@@ -68,10 +68,10 @@ void Snake::finalizeInstance()
 
 void Snake::draw()
 {
-	m_coordinateVec[0].print("¡ñ");//ÉßÍ·±êÖ¾
+	m_coordinateVec[0].print("â—");//è›‡å¤´æ ‡å¿—
 	for (int i = 1; i < m_coordinateVec.size(); i++)
 	{
-		m_coordinateVec[i].print("¡ö");
+		m_coordinateVec[i].print("â– ");
 	}
 }
 
@@ -79,15 +79,15 @@ int Snake::move(Food& food)
 {
 	Point newHeadPoint = getDirection();
 	m_coordinateVec.insert(m_coordinateVec.begin(), newHeadPoint);
-	m_coordinateVec.back().print("  ");//½«¶ÓÎ²µÄÉßÉíÓÃ¿Õ×Ö·û´®Çå³ıÔ­ÏÈµÄ´òÓ¡
-	m_coordinateVec.pop_back();//½«Ô­¶ÓÎ²ÔªËØÉáÆú
+	m_coordinateVec.back().print("  ");//å°†é˜Ÿå°¾çš„è›‡èº«ç”¨ç©ºå­—ç¬¦ä¸²æ¸…é™¤åŸå…ˆçš„æ‰“å°
+	m_coordinateVec.pop_back();//å°†åŸé˜Ÿå°¾å…ƒç´ èˆå¼ƒ
 	draw();
 
-	//ÈôÉßÍ·×ø±êºÍÊ³Îï×ø±êÒ»ÖÂ£¬¼´Îª³Ôµ½Ê³Îï
+	//è‹¥è›‡å¤´åæ ‡å’Œé£Ÿç‰©åæ ‡ä¸€è‡´ï¼Œå³ä¸ºåƒåˆ°é£Ÿç‰©
 	if (newHeadPoint == food.getCoordinate())
 	{
 		m_coordinateVec.push_back(m_coordinateVec.back());
-		//Éú³ÉÒ»¸öĞÂÊ³Îï
+		//ç”Ÿæˆä¸€ä¸ªæ–°é£Ÿç‰©
 		while (1)
 		{
 			food.produceFood();
@@ -116,23 +116,23 @@ int Snake::move(Food& food)
 
 Point Snake::getDirection()
 {
-	static int key = LEFT;  //¾²Ì¬±äÁ¿·ÀÖ¹¸Ä±äÒÆ¶¯·½ÏòºóÖØĞÂ¸Ä»ØÀ´
+	static int key = LEFT;  //é™æ€å˜é‡é˜²æ­¢æ”¹å˜ç§»åŠ¨æ–¹å‘åé‡æ–°æ”¹å›æ¥
 
 	if (_kbhit())
 	{
-		int user_input = _getch();//»ñÈ¡ÓÃ»§´Ó¼üÅÌÊäÈëµÄ·½Ïò¼ü£¬·½Ïò¼üÒª×öÁ½´Î_getch
+		int user_input = _getch();//è·å–ç”¨æˆ·ä»é”®ç›˜è¾“å…¥çš„æ–¹å‘é”®ï¼Œæ–¹å‘é”®è¦åšä¸¤æ¬¡_getch
 		user_input = _getch();
 
-		switch (user_input)     //Èç¹ûÁÙÊ±±äÁ¿µÄÖµÎªwasdÖĞµÄÒ»¸ö£¬Ôò¸³Öµ¸økey
+		switch (user_input)     //å¦‚æœä¸´æ—¶å˜é‡çš„å€¼ä¸ºwasdä¸­çš„ä¸€ä¸ªï¼Œåˆ™èµ‹å€¼ç»™key
 		{
 		default:
-			break;   //defaultÊÇÈ±Ê¡Çé¿ö£¬Ö»ÓĞÈÎºÎÌõ¼ş¶¼²»Æ¥ÅäµÄÇé¿öÏÂ²Å»áÖ´ĞĞ ±ØĞëĞ´ÔÚÇ°Ãæ£¡²»È»ÉßÎŞ·¨×ªÏò
+			break;   //defaultæ˜¯ç¼ºçœæƒ…å†µï¼Œåªæœ‰ä»»ä½•æ¡ä»¶éƒ½ä¸åŒ¹é…çš„æƒ…å†µä¸‹æ‰ä¼šæ‰§è¡Œ å¿…é¡»å†™åœ¨å‰é¢ï¼ä¸ç„¶è›‡æ— æ³•è½¬å‘
 		case LEFT:
 		case RIGHT:
 		case UP:
 		case DOWN:
 
-			//Èç¹ûtempµÄ·½ÏòºÍkeyµÄ·½Ïò²»Ïà·´Ôò¸³Öµ  ÒòÎªÁ½´ÎÒÆ¶¯·½Ïò²»ÄÜÏà·´  ½«ÉßÉèÖÃÎª³õÊ¼ÏòÓÒ×ß
+			//å¦‚æœtempçš„æ–¹å‘å’Œkeyçš„æ–¹å‘ä¸ç›¸ååˆ™èµ‹å€¼  å› ä¸ºä¸¤æ¬¡ç§»åŠ¨æ–¹å‘ä¸èƒ½ç›¸å  å°†è›‡è®¾ç½®ä¸ºåˆå§‹å‘å³èµ°
 			if ((key == LEFT && user_input != RIGHT) || (key == RIGHT && user_input != LEFT)
 				|| (key == UP && user_input != DOWN) || (key == DOWN && user_input != UP))
 			{
@@ -178,12 +178,12 @@ std::vector<Point> Snake::getSnakeCoorVec()
 
 bool Snake::isEatSelf()
 {
-	//»ñÈ¡ÉßÍ·µÄ×ø±ê
+	//è·å–è›‡å¤´çš„åæ ‡
 	int head_x = 0;
 	int head_y = 0;
 	getHeadCoor(head_x, head_y);
 
-	for (int i = 1; i < m_coordinateVec.size(); i++)//´Ó1¿ªÊ¼£¬²»Óë×Ô¼ºµÄÉßÍ·±È½Ï
+	for (int i = 1; i < m_coordinateVec.size(); i++)//ä»1å¼€å§‹ï¼Œä¸ä¸è‡ªå·±çš„è›‡å¤´æ¯”è¾ƒ
 	{
 		if (head_x == m_coordinateVec[i].getX() && head_y == m_coordinateVec[i].getY())
 		{
@@ -197,13 +197,13 @@ bool Snake::isEatSelf()
 
 bool Snake::isHitWall()
 {
-	//»ñÈ¡ÉßÍ·µÄ×ø±ê
+	//è·å–è›‡å¤´çš„åæ ‡
 	int head_x = 0;
 	int head_y = 0;
 	getHeadCoor(head_x, head_y);
 
-	//ÅĞ¶Ï×²Ç½µÄÌõ¼ş£ºx»òÕßyÆäÖĞÓĞÒ»¸öÔÚ±ß½ç
-	if (head_x <= 0 || (head_x >= 2 * MAP_LENGTH - 3)) //xÖáÓÉÓÚ´òÓ¡Ô­ÒòĞèÒª³Ë2
+	//åˆ¤æ–­æ’å¢™çš„æ¡ä»¶ï¼šxæˆ–è€…yå…¶ä¸­æœ‰ä¸€ä¸ªåœ¨è¾¹ç•Œ
+	if (head_x <= 0 || (head_x >= 2 * MAP_LENGTH - 3)) //xè½´ç”±äºæ‰“å°åŸå› éœ€è¦ä¹˜2
 	{
 		m_isAlive = false;
 		return true;

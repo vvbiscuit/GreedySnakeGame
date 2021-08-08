@@ -7,7 +7,7 @@ using namespace std;
 /**********************************************************************************************//**
  * @class	Point
  *
- * @brief	µãÀà£¬ÓÃÓÚ´æ´¢ºÍ´òÓ¡µãĞÅÏ¢.
+ * @brief	ç‚¹ç±»ï¼Œç”¨äºå­˜å‚¨å’Œæ‰“å°ç‚¹ä¿¡æ¯.
  *
  * @author	vvbiscuit
  * @date	2021/7/25
@@ -23,7 +23,7 @@ public:
 
 	void print(string symbol);
 	void changePosition(const int x, const int y);
-	void setCursorPosition(const int x, const int y);//ÉèÖÃ¿ØÖÆÌ¨¹â±êµã×ø±ê,¹â±ê¶¨Î»µÄ×÷ÓÃ
+	void setCursorPosition(const int x, const int y);//è®¾ç½®æ§åˆ¶å°å…‰æ ‡ç‚¹åæ ‡,å…‰æ ‡å®šä½çš„ä½œç”¨
 	int getX();
 	int getY();
 

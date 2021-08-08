@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cstdio>
 #include <windows.h>
 #include <conio.h>
@@ -10,14 +10,14 @@
 
 using namespace std;
 
-//Òş²Ø¹â±ê
+//éšè—å…‰æ ‡
 void hideCursor()
 {
 	CONSOLE_CURSOR_INFO cursor_info = { 1, 0 };
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
 
-//Éú³ÉÒ»¸öºÏ·¨Ê³Îï£¬²»ÄÜÓëÉßÉíÖØºÏ
+//ç”Ÿæˆä¸€ä¸ªåˆæ³•é£Ÿç‰©ï¼Œä¸èƒ½ä¸è›‡èº«é‡åˆ
 void produceValidFood(Food &food, std::vector<Point> vec)
 {
 	while (1)
@@ -40,16 +40,16 @@ void produceValidFood(Food &food, std::vector<Point> vec)
 
 int main()
 {
-	system("mode con cols=88 lines=40");	//ÉèÖÃ¿ØÖÆÌ¨´°¿Ú´óĞ¡
-	system("title Ì°³ÔÉß");					//ÉèÖÃ±êÌâ
-	hideCursor();							//Òş²Ø¹â±ê
+	system("mode con cols=88 lines=40");	//è®¾ç½®æ§åˆ¶å°çª—å£å¤§å°
+	system("title è´ªåƒè›‡");					//è®¾ç½®æ ‡é¢˜
+	hideCursor();							//éšè—å…‰æ ‡
 
 	Map gameMap;
-	gameMap.drawMap();						//µØÍ¼»æÖÆ
+	gameMap.drawMap();						//åœ°å›¾ç»˜åˆ¶
 
-	Snake::getInstance()->draw();			//Éß¶ÔÏó»æÖÆ
+	Snake::getInstance()->draw();			//è›‡å¯¹è±¡ç»˜åˆ¶
 	Food food;
-	produceValidFood(food, Snake::getInstance()->getSnakeCoorVec());	//ÔÚÉßÒÆ¶¯Ç°Éú³ÉÒ»¸öºÏ·¨µÄÊ³ÎïÎ»ÖÃ
+	produceValidFood(food, Snake::getInstance()->getSnakeCoorVec());	//åœ¨è›‡ç§»åŠ¨å‰ç”Ÿæˆä¸€ä¸ªåˆæ³•çš„é£Ÿç‰©ä½ç½®
 
 	while (true)
 	{
